@@ -1,0 +1,79 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.contacts {
+  @include section();
+  align-items: center;
+
+  @include header-height-plus-margin();
+
+  &__title {
+    @include title();
+  }
+
+  &__under-title {
+    @include under-title();
+  }
+
+  &__button-container {
+    display: flex;
+    margin-bottom: 1rem;
+
+    @include respond(tab-land) {
+      flex-direction: column;
+    }
+  }
+
+  &__button {
+    font-size: 2rem;
+    padding: 1.5rem 1rem;
+    margin: 0 0.5rem;
+    background-color: transparent;
+    border: none;
+    color: $color-grey-dark-2;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-secondary;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    &-active {
+      font-size: 2rem;
+      background-color: transparent;
+      border: none;
+      padding: 1.5rem 1rem;
+      margin: 0 0.5rem;
+      text-decoration: underline rgba(48, 56, 65, 0.45) 1px;
+      cursor: pointer;
+      @include respond(tab-land) {
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    @include respond(tab-land) {
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  &__info-title {
+    display: flex;
+    color: $color-grey-dark-2;
+    text-decoration: underline rgba(48, 56, 65, 0.45) 1px;
+  }
+
+  &__info-item {
+    display: flex;
+    margin-bottom: 2rem;
+    text-align: justify;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

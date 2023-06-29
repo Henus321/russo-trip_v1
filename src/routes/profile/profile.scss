@@ -1,0 +1,73 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.profile {
+  @include section();
+  align-items: center;
+
+  @include header-height-plus-margin();
+
+  &__container {
+    @include container();
+    margin-top: 2rem;
+
+    width: 40rem;
+    text-align: center;
+
+    @include respond(phone) {
+      width: 34rem;
+    }
+  }
+
+  &__title {
+    font-size: 2.5rem;
+  }
+
+  &__item {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+
+  &__photo {
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+  }
+
+  &__change-details {
+    padding: 1rem 1.5rem;
+    background-color: $color-secondary;
+    color: $color-smoke;
+    margin-left: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-smoke;
+      color: $color-secondary;
+    }
+
+    &-active {
+      padding: 1rem 1.5rem;
+      background-color: $color-primary;
+      color: $color-smoke;
+      margin-left: 0.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-smoke;
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__input {
+    padding: 1rem;
+
+    &-active {
+      padding: 1rem;
+      background-color: $color-smoke;
+    }
+  }
+}

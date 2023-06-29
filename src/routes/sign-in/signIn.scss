@@ -1,0 +1,50 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.sign-in {
+  @include section();
+  align-items: center;
+
+  @include header-height-plus-margin();
+
+  &__container {
+    @include container();
+    margin-top: 2rem;
+
+    width: 40rem;
+    text-align: center;
+
+    @include respond(phone) {
+      width: 34rem;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input {
+    @include input();
+  }
+
+  &__google-button {
+    background-color: transparent;
+    border: none;
+  }
+
+  &__google-logo {
+    width: 6rem;
+    height: 6rem;
+    padding: 1rem;
+    cursor: pointer;
+  }
+
+  &__link {
+    text-align: center;
+
+    a {
+      color: black;
+    }
+  }
+}

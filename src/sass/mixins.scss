@@ -1,0 +1,132 @@
+@import 'variables.scss';
+
+@mixin list-item() {
+  display: flex;
+  flex-direction: column;
+  width: 49rem;
+  height: auto;
+  padding: 1rem;
+  margin-bottom: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  transition: filter 0.3s ease, box-shadow 0.3s ease;
+  filter: brightness(97%);
+
+  &:hover {
+    filter: brightness(100%);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+  }
+
+  @include respond(tab-land) {
+    width: 48%;
+  }
+
+  @include respond(tab-port) {
+    width: 100%;
+  }
+}
+
+@mixin section() {
+  display: flex;
+  margin: 5rem auto;
+  flex-direction: column;
+  padding: 0 3rem 3rem;
+  font-size: $default-font-size;
+  width: 90%;
+  border-bottom: 1px solid rgba($color-secondary, 0.3);
+
+  @include respond(phone) {
+    width: 100%;
+    padding: 0 1rem 1rem;
+  }
+}
+
+@mixin header-height-plus-margin() {
+  margin-top: $fixed-header-height + $container-margin-top;
+
+  @include respond(phone) {
+    margin-top: $fixed-header-height-phone + $container-margin-top;
+  }
+}
+
+@mixin container() {
+  width: auto;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  transition: filter 0.3s ease, box-shadow 0.3s ease;
+  filter: brightness(97%);
+
+  &:hover {
+    filter: brightness(100%);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+  }
+}
+
+@mixin input() {
+  margin-bottom: 1rem;
+  outline: none;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: $default-font-size;
+  padding: 0.5rem;
+  border: 1px solid $color-secondary;
+
+  &:focus {
+    background-color: $color-smoke;
+  }
+}
+
+@mixin title() {
+  align-self: center;
+  font-size: 2.5rem;
+  text-decoration: underline rgba(48, 56, 65, 0.45) 1px;
+
+  @include respond(phone) {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+@mixin under-title() {
+  align-self: center;
+  color: $color-grey-dark-2;
+  margin-bottom: 2rem;
+
+  @include respond(phone) {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone-small {
+    @media only screen and (max-width: 21.25em) {
+      // 340px
+      @content;
+    }
+  }
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      // 600px
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      // 900px
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      // 1200px
+      @content;
+    }
+  }
+}

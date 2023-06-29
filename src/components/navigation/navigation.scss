@@ -1,0 +1,180 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.navigation {
+  display: block;
+  position: relative;
+
+  &__nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @include respond(tab-land) {
+      display: none;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 10rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: $color-smoke;
+      border-top: 1px solid rgba($color-secondary, 0.5);
+
+      @include respond(phone) {
+        top: 8rem;
+      }
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+
+    @include respond(tab-land) {
+      flex-direction: column;
+      margin-top: 5rem;
+      font-size: 4rem;
+    }
+  }
+
+  &__nav-item {
+    list-style: none;
+    cursor: pointer;
+    white-space: nowrap;
+
+    &:not(:last-child) {
+      margin-right: 3.5rem;
+
+      @include respond(tab-land) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__checkbox-label {
+    display: none;
+    z-index: 2;
+    background-color: transparent;
+
+    @include respond(tab-land) {
+      position: relative;
+      display: block;
+      width: 4rem;
+      height: 3rem;
+    }
+  }
+
+  &__checkbox-icon {
+    display: none;
+    position: relative;
+    z-index: 1;
+
+    @include respond(tab-land) {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &,
+    &::before,
+    &::after {
+      width: 4rem;
+      height: 0.5rem;
+      background-color: $color-secondary;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      transition: all 0.2s ease;
+    }
+
+    &::before {
+      top: -1rem;
+    }
+
+    &::after {
+      top: 1rem;
+    }
+  }
+
+  &__checkbox:checked ~ &__checkbox-icon {
+    background-color: transparent;
+  }
+  &__checkbox:checked ~ &__checkbox-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  &__checkbox:checked ~ &__checkbox-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    display: block;
+  }
+
+  &__link {
+    white-space: nowrap;
+  }
+
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    color: $color-secondary;
+  }
+
+  &__link-active:link,
+  &__link-active:visited {
+    text-decoration: underline rgba(48, 56, 65, 0.45) 1px;
+    color: $color-black;
+  }
+
+  &__link:hover {
+    color: $color-black;
+  }
+
+  &__profile-desktop {
+    width: 3rem;
+    height: 3rem;
+    background-color: $color-white;
+    border-radius: 50%;
+    @include respond(tab-land) {
+      display: none;
+    }
+  }
+
+  &__profile-mobile {
+    display: none;
+
+    @include respond(tab-land) {
+      display: block;
+    }
+  }
+
+  &__logout-btn {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: rgba($color-secondary, 0.95);
+  }
+
+  &__avatar {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+}

@@ -1,0 +1,171 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.footer {
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.15);
+  font-size: $default-font-size;
+  background-color: $color-black;
+  color: $color-grey-dark-3;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    margin: 0 3rem;
+
+    @include respond(phone) {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 3rem 4rem;
+
+    @include respond(phone) {
+      align-items: center;
+      text-align: center;
+    }
+
+    &:nth-child(2) {
+      text-align: center;
+      flex: 0 0 40%;
+      margin-right: 3rem;
+      @include respond(tab-land) {
+        flex: 1;
+        margin-right: 0;
+      }
+      @include respond(phone) {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      @include respond(tab-land) {
+        display: none;
+      }
+    }
+  }
+
+  &__nav {
+    margin-bottom: 0.5rem;
+
+    @include respond(phone) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__nav-list {
+    list-style: none;
+    margin-bottom: 1rem;
+  }
+
+  &__nav-item {
+    font-size: 2rem;
+  }
+
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    color: $color-grey-dark-3;
+  }
+
+  &__link:hover {
+    color: $color-white;
+  }
+
+  &__logo-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 5rem;
+    width: 100%;
+    overflow: hidden;
+
+    @include respond(phone) {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+  &__logo {
+    font-size: 4rem;
+    width: auto;
+    color: $color-secondary;
+    transition: transform 0.5s ease;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &:active {
+      transform: scale(95%);
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__text-area {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    font-size: $default-font-size;
+    background-color: $color-grey-dark-1;
+    color: $color-white;
+    border: 1px solid $color-grey-dark-2;
+    outline: none;
+    resize: none;
+
+    &:hover,
+    &:focus {
+      background-color: $color-secondary;
+      border: 1px solid $color-grey-dark-3;
+    }
+  }
+
+  &__feedback-submit {
+    padding: 0.75rem 2.5rem;
+    align-self: center;
+    background-color: $color-grey-dark-1;
+    text-decoration: none;
+    border: 1px solid $color-grey-dark-2;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-secondary;
+      border: 1px solid $color-grey-dark-3;
+    }
+
+    &:active {
+      transform: scale(98%);
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    margin-bottom: 0.5rem;
+  }
+
+  &__paragraph {
+    text-align: justify;
+  }
+
+  &__hr {
+    height: 1px;
+    background-color: rgba($color-grey-dark-2, 0.25);
+  }
+
+  &__rights {
+    margin: 1rem;
+    color: $color-grey-dark-2;
+  }
+}

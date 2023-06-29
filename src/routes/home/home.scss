@@ -1,0 +1,11 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.home {
+  font-size: $default-font-size;
+  margin-top: $fixed-header-height;
+
+  @include respond(phone) {
+    margin-top: $fixed-header-height-phone;
+  }
+}

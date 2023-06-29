@@ -1,0 +1,22 @@
+@import './sass/variables.scss';
+@import './sass/mixins.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  overflow: hidden;
+
+  margin: 0 auto;
+  width: $default-container-width;
+
+  @include respond(tab-land) {
+    width: 100%;
+  }
+}
+
+.Toastify__toast-container {
+  z-index: 20000;
+}
